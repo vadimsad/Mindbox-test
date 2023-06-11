@@ -1,1 +1,1 @@
-# Mindbox-test
+# Тестовое задание для mindbox
