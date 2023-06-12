@@ -1,22 +1,10 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 
-import { Todo, ViewOptions } from '../types';
-import useLocalStorage from './useLocalStorage';
+import { Todo, ViewOptions } from '../../types';
 
 const useTodoActions = () => {
 	const [todos, setTodos] = useState<Todo[]>([]);
 	const [viewOption, setViewOption] = useState<ViewOptions>(ViewOptions.ALL);
-
-	const { saveToLocalStorage, getFromLocalStorage } = useLocalStorage();
-
-	useEffect(() => {
-		const savedTodos = getFromLocalStorage();
-		setTodos(savedTodos);
-	}, []);
-
-	useEffect(() => {
-		saveToLocalStorage(todos);
-	}, [todos]);
 
 	const addTodo = useCallback((todo: Todo) => {
 		setTodos((prevTodos) => [...prevTodos, todo]);
@@ -33,11 +21,14 @@ const useTodoActions = () => {
 	}, []);
 
 	const changeViewOption = useCallback((option: null | string) => {
-		if (option === null) return;
-		setViewOption(option as ViewOptions);
+		if (option && option in ViewOptions) {
+			setViewOption(option as ViewOptions);
+			return;
+		}
+		return;
 	}, []);
 
-	return { todos, viewOption, changeViewOption, addTodo, removeTodo, toggleTodoStatus };
+	return { todos, viewOption, setTodos, changeViewOption, addTodo, removeTodo, toggleTodoStatus };
 };
 
 export default useTodoActions;

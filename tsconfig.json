@@ -20,6 +20,10 @@
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true
 	},
-	"include": ["src"],
+	"include": [
+		"src",
+		"src/hooks/useLocalStorage/useLocalStorage.test.ts",
+		"src/hooks/useTodoActions//useTodoActions.test.ts"
+	],
 	"references": [{ "path": "./tsconfig.node.json" }]
 }

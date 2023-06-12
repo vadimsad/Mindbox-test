@@ -1,14 +1,26 @@
 import { Row, Col } from 'react-bootstrap';
 
 import Layout from './Layout';
-import CreateTodoForm from './CreateTodoForm';
+import CreateTodoForm from './CreateTodoForm/CreateTodoForm';
 import TodoList from './TodoList';
 import TodoViewMode from './TodoViewMode';
-import useTodoActions from '../hooks/useTodoActions';
+import useTodoActions from '../hooks/useTodoActions/useTodoActions';
+import { useEffect } from 'react';
+import useLocalStorage from '../hooks/useLocalStorage/useLocalStorage';
 
 const TodoApp: React.FC = () => {
-	const { todos, viewOption, changeViewOption, addTodo, removeTodo, toggleTodoStatus } =
+	const { saveToLocalStorage, getFromLocalStorage } = useLocalStorage();
+	const { todos, viewOption, setTodos, changeViewOption, addTodo, removeTodo, toggleTodoStatus } =
 		useTodoActions();
+
+	useEffect(() => {
+		const savedTodos = getFromLocalStorage();
+		setTodos(savedTodos);
+	}, []);
+
+	useEffect(() => {
+		saveToLocalStorage(todos);
+	}, [todos]);
 
 	return (
 		<Layout>

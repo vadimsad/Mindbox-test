@@ -14,13 +14,13 @@ const TodoViewMode: React.FC<TodoViewProps> = ({ changeViewOption }) => {
 			className='pt-3 border-top justify-content-center gap-2'
 		>
 			<Nav.Item>
-				<Nav.Link eventKey='all'>All</Nav.Link>
+				<Nav.Link eventKey='ALL'>All</Nav.Link>
 			</Nav.Item>
 			<Nav.Item>
-				<Nav.Link eventKey='active'>Active</Nav.Link>
+				<Nav.Link eventKey='ACTIVE'>Active</Nav.Link>
 			</Nav.Item>
 			<Nav.Item>
-				<Nav.Link eventKey='completed'>Completed</Nav.Link>
+				<Nav.Link eventKey='COMPLETED'>Completed</Nav.Link>
 			</Nav.Item>
 		</Nav>
 	);

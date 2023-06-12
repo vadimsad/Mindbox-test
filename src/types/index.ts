@@ -5,7 +5,7 @@ export type Todo = {
 };
 
 export enum ViewOptions {
-	ALL = 'all',
-	ACTIVE = 'active',
-	COMPLETED = 'completed',
+	ALL = 'ALL',
+	ACTIVE = 'ACTIVE',
+	COMPLETED = 'COMPLETED',
 }
