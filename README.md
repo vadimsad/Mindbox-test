@@ -1,2 +1,3 @@
-# [Тестовое задание](https://hilarious-pixie-ff58a4.netlify.app/) для mindbox
+# Todo app
 
+## [View](https://hilarious-pixie-ff58a4.netlify.app/)
